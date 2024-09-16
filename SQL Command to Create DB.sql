@@ -19,4 +19,3 @@ CREATE TABLE t_Employee (
 
 INSERT INTO t_login (f_userName, f_Pwd) VALUES ('sam', '$2a$10$HxIc4QqCU2Qp7qYNb7TYuejEv0HPJthkmQTq9lHz7f2l1TchWXPL6');
 select*from t_login;
-truncate table t_Employee;

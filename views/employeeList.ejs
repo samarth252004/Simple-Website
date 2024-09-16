@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee List</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="bg-light py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <img src="/images/logo_B2R.png" alt="Logo" style="width: 80px;">
+      <nav>
+        <a href="/dashboard" class="btn btn-primary"><i class="fas fa-home"></i> Home</a>
+        <a href="/logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container mt-5">
+    <h2><i class="fas fa-users"></i> Employee List</h2>
+    <a href="/create-employee" class="btn btn-primary mb-3"><i class="fas fa-user-plus"></i> Create Employee</a>
+    
+    <form method="get" action="/employees" class="mb-4">
+      <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Enter Search Keyword">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+        </div>
+      </div>
+    </form>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Unique Id</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile No</th>
+          <th>Designation</th>
+          <th>Gender</th>
+          <th>Course</th>
+          <th>Create Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% employees.forEach(employee => { 
+          const formattedDate = new Date(employee.f_Createdate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: '2-digit' });
+        %>
+          <tr>
+            <td><%= employee.f_Id %></td>
+            <td><img src="/employee-image/<%= employee.f_Id %>" alt="Profile Image" width="50"></td>
+            <td><%= employee.f_Name %></td>
+            <td><%= employee.f_Email %></td>
+            <td><%= employee.f_Mobile %></td>
+            <td><%= employee.f_Designation %></td>
+            <td><%= employee.f_Gender %></td>
+            <td><%= employee.f_Course %></td>
+            <td><%= formattedDate %></td>
+            <td>
+              <a href="/edit-employee/<%= employee.f_Id %>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+              <a href="/delete-employee/<%= employee.f_Id %>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

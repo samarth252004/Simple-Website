@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <header class="bg-light py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <img src="images/logo_B2R.png" alt="Logo" class="logo" style="width: 80px;">
+      <nav>
+        <a href="/dashboard" class="btn btn-primary"><i class="fas fa-home"></i> Home</a>
+        <a href="/employees" class="btn btn-primary"><i class="fas fa-users"></i> Employee List</a>
+        <span class="ml-3">
+          <%= user %> - <a href="/logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-3">
+        <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+      </div>
+    </div>
+    <div class="col-md-9 text-center">
+      <h1>Welcome to Admin Panel</h1>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

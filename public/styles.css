@@ -1,0 +1,175 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    line-height: 1.4;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  button, .btn {
+    width: auto;
+    max-width: 100%;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  @media screen and (max-width: 768px) {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+  
+  header {
+    width: 100%;
+    padding: 15px;
+    background: #f8f9fa;
+  }
+  
+  header .logo {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  header nav {
+    margin-top: 10px;
+  }
+  
+  header nav a {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    header {
+      text-align: center;
+    }
+  
+    header nav a {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+  
+  footer {
+    background-color: #f1f1f1;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+    
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    form {
+      padding: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .container {
+      padding: 5px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    h2 {
+      font-size: 1.3rem;
+    }
+  
+    button, .btn {
+      width: 100%;
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  
+    input, select, textarea {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  
+    button, .btn, a.btn {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  
+    header {
+      text-align: center;
+      padding: 10px;
+    }
+  
+    header nav a {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+  
+.side-heading {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 20px;
+  }
+
+.user-info{
+    font-size: xx-large;
+}

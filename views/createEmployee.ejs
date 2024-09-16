@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Employee</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header class="bg-light py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <img src="/images/logo_B2R.png" alt="Logo" style="width: 80px;">
+            <nav>
+                <a href="/dashboard" class="btn btn-primary"><i class="fas fa-home"></i> Home</a>
+                <a href="/employees" class="btn btn-primary"><i class="fas fa-users"></i> Employee List</a>
+                <a href="/logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </div>
+    </header>
+    
+  <div class="container mt-5">
+    <h2><i class="fas fa-user-plus"></i> Create Employee</h2>
+    <form method="post" action="/create-employee" enctype="multipart/form-data" class="needs-validation" novalidate>
+      <div class="form-group">
+        <label for="name"><i class="fas fa-user"></i> Name</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="Name" required>
+        <div class="invalid-feedback">Please enter a name.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+        <div class="invalid-feedback">Please enter a valid email.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="mobile"><i class="fas fa-phone"></i> Mobile No</label>
+        <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile No" required>
+        <div class="invalid-feedback">Please enter a valid mobile number.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="designation"><i class="fas fa-briefcase"></i> Designation</label>
+        <select name="designation" id="designation" class="form-control" required>
+          <option value="">Select Designation</option>
+          <option value="HR">HR</option>
+          <option value="Manager">Manager</option>
+          <option value="Sales">Sales</option>
+        </select>
+        <div class="invalid-feedback">Please select a designation.</div>
+      </div>
+
+      <div class="form-group">
+        <label><i class="fas fa-genderless"></i> Gender</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+          <label class="form-check-label" for="genderMale">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female" required>
+          <label class="form-check-label" for="genderFemale">Female</label>
+        </div>
+        <div class="invalid-feedback">Please select your gender.</div>
+      </div>
+
+      <div class="form-group">
+        <label><i class="fas fa-book"></i> Courses</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="course" id="courseMCA" value="MCA">
+          <label class="form-check-label" for="courseMCA">MCA</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="course" id="courseBCA" value="BCA">
+          <label class="form-check-label" for="courseBCA">BCA</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="course" id="courseBSC" value="BSC">
+          <label class="form-check-label" for="courseBSC">BSC</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="image"><i class="fas fa-image"></i> Profile Image</label>
+        <input type="file" name="image" class="form-control-file" id="image" accept="image/*" required>
+        <div class="invalid-feedback">Please upload an image.</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Submit</button>
+      <a href="/employees" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Employee List</a>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+</body>
+</html>

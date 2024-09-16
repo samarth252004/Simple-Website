@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Employee</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="bg-light py-3">
+    <div class="container d-flex justify-content-between">
+      <div><img src="/images/logo_B2R.png" alt="Logo" style="width: 80px;"><h1 class="h4 d-inline">Employee List</h1></div>
+      <nav>
+        <a href="/dashboard" class="btn btn-primary"><i class="fas fa-home"></i> Home</a>
+        <a href="/employees" class="btn btn-primary"><i class="fas fa-users"></i> Employees</a>
+        <a href="/logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container mt-5">
+    <h2><i class="fas fa-user-edit"></i> Edit Employee</h2>
+    <form id="employeeForm" action="/edit-employee/<%= employee.f_Id %>" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="oldImage" value="<%= employee.f_Image %>">
+      <div class="form-group">
+        <label for="name"><i class="fas fa-user"></i> Name:</label>
+        <input type="text" id="name" name="name" value="<%= employee.f_Name %>" class="form-control" required maxlength="50">
+      </div>
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+        <input type="email" id="email" name="email" value="<%= employee.f_Email %>" class="form-control" required maxlength="100">
+      </div>
+      <div class="form-group">
+        <label for="mobile"><i class="fas fa-phone"></i> Mobile:</label>
+        <input type="text" id="mobile" name="mobile" value="<%= employee.f_Mobile %>" class="form-control" required maxlength="10">
+      </div>
+      <div class="form-group">
+        <label for="designation"><i class="fas fa-briefcase"></i> Designation:</label>
+        <select id="designation" name="designation" class="form-control" required>
+          <option value="HR" <%= employee.f_Designation === 'HR' ? 'selected' : '' %>>HR</option>
+          <option value="Manager" <%= employee.f_Designation === 'Manager' ? 'selected' : '' %>>Manager</option>
+          <option value="Sales" <%= employee.f_Designation === 'Sales' ? 'selected' : '' %>>Sales</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Gender:</label><br>
+        <div class="form-check form-check-inline">
+          <input type="radio" id="male" name="gender" value="Male" <%= employee.f_Gender === 'Male' ? 'checked' : '' %> class="form-check-input" required>
+          <label for="male">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" id="female" name="gender" value="Female" <%= employee.f_Gender === 'Female' ? 'checked' : '' %> class="form-check-input" required>
+          <label for="female">Female</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Course:</label><br>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" id="mca" name="course" value="MCA" <%= employee.f_Course.includes('MCA') ? 'checked' : '' %> class="form-check-input" required>
+          <label for="mca">MCA</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" id="bca" name="course" value="BCA" <%= employee.f_Course.includes('BCA') ? 'checked' : '' %> class="form-check-input">
+          <label for="bca">BCA</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" id="bsc" name="course" value="BSC" <%= employee.f_Course.includes('BSC') ? 'checked' : '' %> class="form-check-input">
+          <label for="bsc">BSC</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="image"><i class="fas fa-image"></i> Upload Image:</label>
+        <input type="file" id="image" name="image" accept="image/jpeg, image/png" class="form-control-file" required>
+      </div>
+      <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Update</button>
+      <a href="/employees" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('employeeForm').addEventListener('submit', function(event) {
+      const email = document.getElementById('email').value;
+      const mobile = document.getElementById('mobile').value;
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail|yahoo|hotmail|outlook|example)\.com$/;
+      const mobilePattern = /^\d{10}$/;
+      if (!emailPattern.test(email) || !mobilePattern.test(mobile)) {
+        alert('Invalid input, please check email or mobile.');
+        event.preventDefault();
+      }
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
